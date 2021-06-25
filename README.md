@@ -1,0 +1,1 @@
+# hibernate-h2-test5
