@@ -59,7 +59,7 @@ public class AdjacencyListIT {
 
     @BeforeEach
     public void beforeEach(TestInfo testInfo) throws SQLException {
-        System.out.println("###" + testInfo.getTestMethod().get());
+        System.out.println("### " + testInfo.getTestMethod().get());
         var query = "DROP ALL OBJECTS";
         var stmt = DataLayer.getConnection().createStatement();
         stmt.executeUpdate(query);
@@ -118,7 +118,7 @@ public class AdjacencyListIT {
         var queryWithParameter = query.replace("?", "'" + joystickNode.getUuid() + "'");
         var q = manager.createNativeQuery(queryWithParameter);
         var arrays = q.getResultList();
-        System.out.println("# Array size with manual parameter: " + arrays.size());
+        System.out.println("Array size with manual parameter: " + arrays.size());
         manager.close();
     }
 
@@ -127,7 +127,7 @@ public class AdjacencyListIT {
         var q = manager.createNativeQuery(query);
         q.setParameter(1, joystickNode.getUuid());
         var arrays = q.getResultList();
-        System.out.println("# Array size jpa parameter: " + arrays.size());
+        System.out.println("Array size jpa parameter: " + arrays.size());
         manager.close();
     }
 }
